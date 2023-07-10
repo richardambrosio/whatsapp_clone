@@ -5,7 +5,46 @@ class WhatsAppController {
 
         this.elementsPrototype();
         this.loadElements();
+        this.initEvents();
+    }
 
+    initEvents() {
+        this.el.myPhoto.on('click', e => {
+            this.closeAllLeftPanels();
+            this.el.panelEditProfile.show();
+            setTimeout(() => {
+                this.el.panelEditProfile.addClass('open');
+            }, 300);
+        });
+
+        this.el.btnNewContact.on('click', e => {
+            this.closeAllLeftPanels();
+            this.el.panelAddContact.show();
+            setTimeout(() => {
+                this.el.panelAddContact.addClass('open');
+            }, 300);
+        });
+
+        this.el.btnClosePanelEditProfile.on('click', e => {
+            this.el.panelEditProfile.removeClass('open');
+        });
+
+        this.el.btnClosePanelAddContact.on('click', e => {
+            this.el.panelAddContact.removeClass('open');
+        });
+    }
+
+    closeAllLeftPanels() {
+        this.el.panelEditProfile.hide();
+        this.el.panelAddContact.hide();
+    }
+
+    loadElements() {
+        this.el = {};
+
+        document.querySelectorAll('[id]').forEach(element => {
+            this.el[Format.getCamelCase(element.id)] = element;
+        });
     }
 
     elementsPrototype() {
@@ -43,19 +82,19 @@ class WhatsAppController {
             return this;
         }
 
-        Element.prototype.css.addClass = function(name) {
+        Element.prototype.addClass = function(name) {
             this.classList.add(name);
 
             return this;
         }
 
-        Element.prototype.css.removeClass = function(name) {
+        Element.prototype.removeClass = function(name) {
             this.classList.remove(name);
 
             return this;
         }
 
-        Element.prototype.css.toogleClass = function(name) {
+        Element.prototype.toogleClass = function(name) {
             this.classList.toogle(name);
 
             return this;
@@ -64,13 +103,5 @@ class WhatsAppController {
         Element.prototype.css.hasClass = function(name) {
             return this.classList.contains(name);
         }
-    }
-
-    loadElements() {
-        this.el = {};
-
-        document.querySelectorAll('[id]').forEach(element => {
-            this.el[Format.getCamelCase(element.id)] = element;
-        });
     }
 }
