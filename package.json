@@ -1,0 +1,23 @@
+{
+  "name": "whatsapp_clone",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido como exemplo do Curso Completo de JavaScript na Udemy.com.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardambrosio/whatsapp_clone.git"
+  },
+  "author": "Richard Ambrosio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardambrosio/whatsapp_clone/issues"
+  },
+  "homepage": "https://github.com/richardambrosio/whatsapp_clone#readme",
+  "dependencies": {
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
